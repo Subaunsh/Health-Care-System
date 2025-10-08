@@ -4,7 +4,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import PageHeader from '@/components/page-header';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -12,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -23,6 +22,7 @@ import {
 } from '@/components/ui/select';
 import { specialists } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ConsultationBookingForm } from '@/components/consultation-booking-form';
 
 export default function SpecialistsPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -106,7 +106,7 @@ export default function SpecialistsPage() {
                   <p className="text-center text-sm text-muted-foreground">
                     {specialist.bio}
                   </p>
-                  <Button>Book a Consultation</Button>
+                  <ConsultationBookingForm specialist={specialist} />
                 </CardContent>
               </Card>
             );

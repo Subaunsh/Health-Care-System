@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import { SpecialistSidebarNav } from './specialist-sidebar-nav';
 import PatientsPage from '@/app/patients/page';
 
@@ -9,9 +10,13 @@ interface SpecialistLayoutProps {
   showContent?: boolean;
 }
 
-export function SpecialistLayout({ showContent = false }: SpecialistLayoutProps) {
+export function SpecialistLayout({ children, showContent = false }: SpecialistLayoutProps) {
+    const pathname = usePathname();
   if (showContent) {
-    return <PatientsPage />;
+    if (pathname === '/patients' || pathname === '/') {
+        return <PatientsPage />;
+    }
+    return <>{children}</>;
   }
 
   return <SpecialistSidebarNav />;

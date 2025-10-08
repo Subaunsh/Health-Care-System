@@ -18,6 +18,7 @@ import { useState } from 'react';
 import PatientsPage from '@/app/patients/page';
 import { usePathname } from 'next/navigation';
 import SpecialistsPage from '@/app/specialists/page';
+import { SpecialistSidebarNav } from './specialist-sidebar-nav';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
@@ -25,7 +26,10 @@ export function AppLayout({ children }: { children: ReactNode }) {
 
   const renderContent = () => {
     if (role === 'specialist') {
-      return <PatientsPage />;
+      if (pathname === '/patients' || pathname === '/') {
+        return <PatientsPage />;
+      }
+      return children;
     }
     
     if (role === 'patient') {
@@ -39,6 +43,9 @@ export function AppLayout({ children }: { children: ReactNode }) {
   }
 
   const renderNav = () => {
+    if (role === 'specialist') {
+      return <SpecialistSidebarNav />;
+    }
       return <SidebarNav />;
   }
   

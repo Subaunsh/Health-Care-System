@@ -27,6 +27,8 @@ const navItems = [
 
 export function SidebarNav() {
   const pathname = usePathname();
+  const isPatientRoute = ['/dashboard', '/medications', '/consultations', '/insights', '/profile', '/specialists'].includes(pathname);
+
 
   return (
     <SidebarMenu>
@@ -34,7 +36,7 @@ export function SidebarNav() {
         <SidebarMenuItem key={item.href}>
           <SidebarMenuButton
             asChild
-            isActive={pathname === item.href || (pathname === '/' && item.href === '/specialists')}
+            isActive={pathname === item.href || (!isPatientRoute && item.href === '/specialists')}
             tooltip={{
               children: item.label,
               side: 'right',

@@ -64,4 +64,7 @@ export const specialists = [
     { id: 'doc4', name: 'Dr. Marcus Lowe', specialty: 'Orthopedist', avatarId: 'doc4', bio: 'Focused on musculoskeletal issues, including sports injuries and joint pain.' },
     { id: 'doc5', name: 'Dr. Sofia Ramirez', specialty: 'Pediatrician', avatarId: 'doc5', bio: 'Dedicated to the health and well-being of children and adolescents.' },
     { id: 'doc6', name: 'Dr. Kenji Tanaka', specialty: 'Neurologist', avatarId: 'doc6', bio: 'Treating disorders of the nervous system, including headaches and memory issues.' },
+    { id: 'doc7', name: 'Dr. Isabel Garcia', specialty: 'Endocrinologist', avatarId: 'doc7', bio: 'Managing hormone imbalances and metabolic disorders like diabetes.' },
+    { id: 'doc8', name: 'Dr. Henry Wu', specialty: 'Gastroenterologist', avatarId: 'doc8', bio: 'Specialist in digestive system disorders and liver diseases.' },
+    { id: 'doc9', name: 'Dr. Chloe Kim', specialty: 'Psychiatrist', avatarId: 'doc9', bio: 'Supporting mental health and well-being through therapy and medication.' },
 ];

@@ -17,10 +17,10 @@ import {
 } from '@/components/ui/sidebar';
 
 const navItems = [
+  { href: '/specialists', label: 'Find a Specialist', icon: Stethoscope },
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/medications', label: 'Medications', icon: Tablet },
   { href: '/consultations', label: 'Consultations', icon: Video },
-  { href: '/specialists', label: 'Find a Specialist', icon: Stethoscope },
   { href: '/insights', label: 'Insights', icon: Sparkles },
   { href: '/profile', label: 'Profile', icon: User },
 ];
@@ -34,7 +34,7 @@ export function SidebarNav() {
         <SidebarMenuItem key={item.href}>
           <SidebarMenuButton
             asChild
-            isActive={pathname === item.href}
+            isActive={pathname === item.href || (pathname === '/' && item.href === '/specialists')}
             tooltip={{
               children: item.label,
               side: 'right',

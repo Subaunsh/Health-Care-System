@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/sidebar';
 import { UserMenu } from './user-menu';
 import { SidebarNav } from './sidebar-nav';
-import { HeartPulse, Stethoscope } from 'lucide-react';
+import { HeartPulse } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useState } from 'react';
 import PatientsPage from '@/app/patients/page';
@@ -29,7 +29,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
     }
     
     if (role === 'patient') {
-      if (pathname === '/specialists') {
+      if (pathname === '/specialists' || pathname === '/') {
         return <SpecialistsPage />;
       }
       return children;
@@ -39,12 +39,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
   }
 
   const renderNav = () => {
-    if (role === 'patient') {
       return <SidebarNav />;
-    }
-    return (
-      <SidebarNav />
-    )
   }
   
   return (

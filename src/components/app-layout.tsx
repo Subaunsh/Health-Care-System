@@ -17,10 +17,29 @@ import { HeartPulse } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useState } from 'react';
 import SpecialistsPage from '@/app/specialists/page';
+import PatientsPage from '@/app/patients/page';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
 
+  const renderContent = () => {
+    switch (role) {
+      case 'patient':
+        return children;
+      case 'specialist':
+        return <PatientsPage />;
+      default:
+        return children;
+    }
+  }
+
+  const renderNav = () => {
+    if (role === 'patient') {
+      return <SidebarNav />;
+    }
+    return null;
+  }
+  
   return (
     <SidebarProvider>
       <Sidebar
@@ -54,7 +73,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
               </ToggleGroupItem>
             </ToggleGroup>
           </SidebarGroup>
-          <SidebarNav />
+          {renderNav()}
         </SidebarContent>
         <SidebarFooter>
           <UserMenu />
@@ -64,7 +83,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <div className="absolute left-4 top-4 md:hidden">
             <SidebarTrigger />
         </div>
-        {role === 'patient' ? <SpecialistsPage /> : children}
+        {renderContent()}
       </SidebarInset>
     </SidebarProvider>
   );

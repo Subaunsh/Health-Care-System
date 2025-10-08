@@ -1,4 +1,5 @@
 
+
 export const vitalsData = [
   { date: 'Mon', 'Heart Rate': 72, 'Blood Pressure': 120 },
   { date: 'Tue', 'Heart Rate': 75, 'Blood Pressure': 122 },
@@ -67,4 +68,15 @@ export const specialists = [
     { id: 'doc7', name: 'Dr. Isabel Garcia', specialty: 'Endocrinologist', avatarId: 'doc7', bio: 'Managing hormone imbalances and metabolic disorders like diabetes.' },
     { id: 'doc8', name: 'Dr. Henry Wu', specialty: 'Gastroenterologist', avatarId: 'doc8', bio: 'Specialist in digestive system disorders and liver diseases.' },
     { id: 'doc9', name: 'Dr. Chloe Kim', specialty: 'Psychiatrist', avatarId: 'doc9', bio: 'Supporting mental health and well-being through therapy and medication.' },
+    { id: 'doc10', name: 'Dr. Aaron Miles', specialty: 'Urologist', avatarId: 'doc10', bio: 'Expert in urinary tract and male reproductive health issues.' },
+    { id: 'doc11', name: 'Dr. Samantha Bee', specialty: 'Allergist', avatarId: 'doc11', bio: 'Specializing in the diagnosis and treatment of allergies and asthma.' },
+    { id: 'doc12', name: 'Dr. David Lee', specialty: 'Rheumatologist', avatarId: 'doc12', bio: 'Focused on autoimmune diseases and rheumatic conditions.' },
+];
+
+export const patientConsultations = [
+    { id: 'pc1', patientName: 'John Smith', age: 45, symptoms: 'Persistent cough and shortness of breath.', consultationDate: '2024-08-20', status: 'Pending' },
+    { id: 'pc2', patientName: 'Emily Johnson', age: 32, symptoms: 'Severe migraines and dizziness.', consultationDate: '2024-08-21', status: 'Pending' },
+    { id: 'pc3', patientName: 'Michael Brown', age: 60, symptoms: 'Joint pain and stiffness, particularly in the mornings.', consultationDate: '2024-08-22', status: 'Confirmed' },
+    { id: 'pc4', patientName: 'Sarah Davis', age: 28, symptoms: 'Skin rash and itching on arms and back.', consultationDate: '2024-08-23', status: 'Pending' },
+    { id: 'pc5', patientName: 'Daniel Wilson', age: 52, symptoms: 'Digestive issues and acid reflux.', consultationDate: '2024-08-24', status: 'Completed' },
 ];

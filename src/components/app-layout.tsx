@@ -31,7 +31,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
       }
       return children;
     }
-    
+
     if (role === 'patient') {
       if (pathname === '/specialists' || pathname === '/') {
         return <SpecialistsPage />;
@@ -40,15 +40,25 @@ export function AppLayout({ children }: { children: ReactNode }) {
     }
 
     return children;
-  }
+  };
 
   const renderNav = () => {
     if (role === 'specialist') {
       return <SpecialistSidebarNav />;
     }
-      return <SidebarNav />;
+    return <SidebarNav />;
+  };
+
+  const finalContent = () => {
+    if (role === 'specialist') {
+      return <PatientsPage />;
+    }
+    if (role === 'patient' && (pathname === '/' || pathname === '/specialists')) {
+        return <SpecialistsPage />;
+    }
+    return children;
   }
-  
+
   return (
     <SidebarProvider>
       <Sidebar
@@ -66,8 +76,8 @@ export function AppLayout({ children }: { children: ReactNode }) {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup className="p-2">
-            <ToggleGroup 
-              type="single" 
+            <ToggleGroup
+              type="single"
               defaultValue="patient"
               className="grid grid-cols-2"
               onValueChange={(value) => {
@@ -92,7 +102,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <div className="absolute left-4 top-4 md:hidden">
             <SidebarTrigger />
         </div>
-        {renderContent()}
+        {finalContent()}
       </SidebarInset>
     </SidebarProvider>
   );

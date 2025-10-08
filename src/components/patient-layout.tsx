@@ -16,12 +16,12 @@ export function PatientLayout({ children, showContent = false }: PatientLayoutPr
 
   if (showContent) {
     if (pathname === '/') {
-        return <DashboardPage />;
-    }
-    if (pathname === '/specialists') {
       return <SpecialistsPage />;
     }
-    if (['/medications', '/consultations', '/insights', '/profile'].includes(pathname)) {
+    if (pathname === '/dashboard') {
+        return <DashboardPage />;
+    }
+    if (['/medications', '/consultations', '/insights', '/profile', '/specialists'].includes(pathname)) {
         return <>{children}</>;
     }
     // Default to specialists page for patient role

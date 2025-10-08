@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/sidebar';
 
 const navItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/specialists', label: 'Find a Specialist', icon: Stethoscope },
   { href: '/medications', label: 'Medications', icon: Tablet },
   { href: '/consultations', label: 'Consultations', icon: Video },
@@ -34,7 +34,7 @@ export function SidebarNav() {
         <SidebarMenuItem key={item.href}>
           <SidebarMenuButton
             asChild
-            isActive={pathname === item.href}
+            isActive={pathname === item.href || (pathname === '/' && item.href === '/specialists')}
             tooltip={{
               children: item.label,
               side: 'right',

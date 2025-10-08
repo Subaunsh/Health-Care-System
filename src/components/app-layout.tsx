@@ -9,12 +9,17 @@ import {
   SidebarFooter,
   SidebarInset,
   SidebarTrigger,
+  SidebarGroup,
 } from '@/components/ui/sidebar';
 import { UserMenu } from './user-menu';
 import { SidebarNav } from './sidebar-nav';
 import { HeartPulse } from 'lucide-react';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { useState } from 'react';
 
 export function AppLayout({ children }: { children: ReactNode }) {
+  const [role, setRole] = useState('patient');
+
   return (
     <SidebarProvider>
       <Sidebar
@@ -31,6 +36,23 @@ export function AppLayout({ children }: { children: ReactNode }) {
           </div>
         </SidebarHeader>
         <SidebarContent>
+          <SidebarGroup className="p-2">
+            <ToggleGroup 
+              type="single" 
+              defaultValue="patient"
+              className="grid grid-cols-2"
+              onValueChange={(value) => {
+                if (value) setRole(value);
+              }}
+            >
+              <ToggleGroupItem value="patient" aria-label="Toggle patient view">
+                Patient
+              </ToggleGroupItem>
+              <ToggleGroupItem value="specialist" aria-label="Toggle specialist view">
+                Specialist
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </SidebarGroup>
           <SidebarNav />
         </SidebarContent>
         <SidebarFooter>

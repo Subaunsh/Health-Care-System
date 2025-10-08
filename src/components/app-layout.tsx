@@ -1,4 +1,3 @@
-
 'use client';
 import type { ReactNode } from 'react';
 import {
@@ -13,31 +12,39 @@ import {
 } from '@/components/ui/sidebar';
 import { UserMenu } from './user-menu';
 import { SidebarNav } from './sidebar-nav';
-import { HeartPulse } from 'lucide-react';
+import { HeartPulse, Stethoscope } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useState } from 'react';
-import SpecialistsPage from '@/app/specialists/page';
 import PatientsPage from '@/app/patients/page';
+import { usePathname } from 'next/navigation';
+import SpecialistsPage from '@/app/specialists/page';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
+  const pathname = usePathname();
 
   const renderContent = () => {
-    switch (role) {
-      case 'patient':
-        return children;
-      case 'specialist':
-        return <PatientsPage />;
-      default:
-        return children;
+    if (role === 'specialist') {
+      return <PatientsPage />;
     }
+    
+    if (role === 'patient') {
+      if (pathname === '/specialists') {
+        return <SpecialistsPage />;
+      }
+      return children;
+    }
+
+    return children;
   }
 
   const renderNav = () => {
     if (role === 'patient') {
       return <SidebarNav />;
     }
-    return null;
+    return (
+      <SidebarNav />
+    )
   }
   
   return (

@@ -8,6 +8,7 @@ import {
   Video,
   Sparkles,
   User,
+  Stethoscope,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -19,6 +20,7 @@ const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/medications', label: 'Medications', icon: Tablet },
   { href: '/consultations', label: 'Consultations', icon: Video },
+  { href: '/specialists', label: 'Find a Specialist', icon: Stethoscope },
   { href: '/insights', label: 'Insights', icon: Sparkles },
   { href: '/profile', label: 'Profile', icon: User },
 ];

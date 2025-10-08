@@ -1,3 +1,4 @@
+
 export const vitalsData = [
   { date: 'Mon', 'Heart Rate': 72, 'Blood Pressure': 120 },
   { date: 'Tue', 'Heart Rate': 75, 'Blood Pressure': 122 },
@@ -55,3 +56,12 @@ export const userProfile = {
     healthConditions: 'Hypertension, Type 2 Diabetes',
     allergies: 'Penicillin',
 };
+
+export const specialists = [
+    { id: 'doc1', name: 'Dr. Evelyn Reed', specialty: 'Cardiologist', avatarId: 'doc1', bio: 'Expert in treating heart conditions and promoting cardiovascular wellness.' },
+    { id: 'doc2', name: 'Dr. Ben Carter', specialty: 'General Practitioner', avatarId: 'doc2', bio: 'Providing comprehensive primary care for all ages.' },
+    { id: 'doc3', name: 'Dr. Olivia Chen', specialty: 'Dermatologist', avatarId: 'doc3', bio: 'Specializing in skin health, from acne to anti-aging treatments.' },
+    { id: 'doc4', name: 'Dr. Marcus Lowe', specialty: 'Orthopedist', avatarId: 'doc4', bio: 'Focused on musculoskeletal issues, including sports injuries and joint pain.' },
+    { id: 'doc5', name: 'Dr. Sofia Ramirez', specialty: 'Pediatrician', avatarId: 'doc5', bio: 'Dedicated to the health and well-being of children and adolescents.' },
+    { id: 'doc6', name: 'Dr. Kenji Tanaka', specialty: 'Neurologist', avatarId: 'doc6', bio: 'Treating disorders of the nervous system, including headaches and memory issues.' },
+];

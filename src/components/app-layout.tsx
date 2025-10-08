@@ -16,6 +16,7 @@ import { SidebarNav } from './sidebar-nav';
 import { HeartPulse } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useState } from 'react';
+import SpecialistsPage from '@/app/specialists/page';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
@@ -63,7 +64,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <div className="absolute left-4 top-4 md:hidden">
             <SidebarTrigger />
         </div>
-        {children}
+        {role === 'patient' ? <SpecialistsPage /> : children}
       </SidebarInset>
     </SidebarProvider>
   );

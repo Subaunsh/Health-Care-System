@@ -13,6 +13,30 @@
       "imageHint": "doctor portrait"
     },
     {
+      "id": "doc3",
+      "description": "Portrait of Dr. Olivia Chen",
+      "imageUrl": "https://picsum.photos/seed/doc3/100/100",
+      "imageHint": "doctor portrait"
+    },
+    {
+      "id": "doc4",
+      "description": "Portrait of Dr. Marcus Lowe",
+      "imageUrl": "https://picsum.photos/seed/doc4/100/100",
+      "imageHint": "doctor portrait"
+    },
+    {
+      "id": "doc5",
+      "description": "Portrait of Dr. Sofia Ramirez",
+      "imageUrl": "https://picsum.photos/seed/doc5/100/100",
+      "imageHint": "doctor portrait"
+    },
+    {
+      "id": "doc6",
+      "description": "Portrait of Dr. Kenji Tanaka",
+      "imageUrl": "https://picsum.photos/seed/doc6/100/100",
+      "imageHint": "doctor portrait"
+    },
+    {
       "id": "user-avatar",
       "description": "User avatar",
       "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk3NDM1MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",

@@ -26,15 +26,19 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function SpecialistsPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [professionTerm, setProfessionTerm] = useState('');
   const [specialtyFilter, setSpecialtyFilter] = useState('all');
 
   const filteredSpecialists = specialists.filter((specialist) => {
     const matchesSearch = specialist.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
+    const matchesProfession = specialist.specialty
+      .toLowerCase()
+      .includes(professionTerm.toLowerCase());
     const matchesSpecialty =
       specialtyFilter === 'all' || specialist.specialty === specialtyFilter;
-    return matchesSearch && matchesSpecialty;
+    return matchesSearch && matchesProfession && matchesSpecialty;
   });
 
   const uniqueSpecialties = [
@@ -56,6 +60,13 @@ export default function SpecialistsPage() {
                 placeholder="Search by name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            <div className="flex-1">
+              <Input
+                placeholder="Search by profession..."
+                value={professionTerm}
+                onChange={(e) => setProfessionTerm(e.target.value)}
               />
             </div>
             <div className="flex-1 md:max-w-xs">

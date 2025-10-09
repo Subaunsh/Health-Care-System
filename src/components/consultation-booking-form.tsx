@@ -56,12 +56,14 @@ export function ConsultationBookingForm({ specialist }: ConsultationBookingFormP
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    const now = new Date();
+    
     const newAppointment = {
         id: `apt${upcomingAppointments.length + 1}`,
         doctor: specialist.name,
         specialty: specialist.specialty,
-        date: '2024-09-01',
-        time: '11:00 AM',
+        date: now.toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        time: now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' }),
         avatarId: specialist.avatarId,
     };
     upcomingAppointments.push(newAppointment);

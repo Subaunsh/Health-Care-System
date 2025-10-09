@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { AppLayout } from '@/components/app-layout';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
+import { Header } from '@/components/header';
 
 export const metadata: Metadata = {
   title: 'HealthSync',

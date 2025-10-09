@@ -23,6 +23,7 @@ import { PatientLayout } from './patient-layout';
 import { SpecialistLayout } from './specialist-layout';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Header } from './header';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
@@ -31,7 +32,12 @@ export function AppLayout({ children }: { children: ReactNode }) {
   const isHomePage = pathname === '/';
 
   if (isHomePage) {
-    return <>{children}</>;
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">{children}</main>
+        </div>
+    );
   }
 
   return (

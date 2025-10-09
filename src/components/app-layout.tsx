@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { HeartPulse, Home, LogIn, Info, Mail } from 'lucide-react';
+import { HeartPulse, Home, LogIn, Info, Mail, User } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -24,6 +24,14 @@ import { SpecialistLayout } from './specialist-layout';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Header } from './header';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
+import { AuthForm } from './auth-form';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
@@ -78,12 +86,20 @@ export function AppLayout({ children }: { children: ReactNode }) {
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <Link href="#">
-                  <LogIn />
-                  <span>Log in</span>
-                </Link>
-              </SidebarMenuButton>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <SidebarMenuButton>
+                    <LogIn />
+                    <span>Log in</span>
+                  </SidebarMenuButton>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle className="sr-only">Authentication</DialogTitle>
+                  </DialogHeader>
+                  <AuthForm />
+                </DialogContent>
+              </Dialog>
             </SidebarMenuItem>
           </SidebarMenu>
           <SidebarSeparator />

@@ -26,7 +26,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import type { specialists } from '@/lib/data';
+import { specialists, upcomingAppointments } from '@/lib/data';
+import { useRouter } from 'next/navigation';
 
 type Specialist = (typeof specialists)[0];
 
@@ -43,6 +44,7 @@ interface ConsultationBookingFormProps {
 export function ConsultationBookingForm({ specialist }: ConsultationBookingFormProps) {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,14 +56,23 @@ export function ConsultationBookingForm({ specialist }: ConsultationBookingFormP
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Here you would typically handle the booking logic, e.g., send to a server
+    const newAppointment = {
+        id: `apt${upcomingAppointments.length + 1}`,
+        doctor: specialist.name,
+        specialty: specialist.specialty,
+        date: '2024-09-01',
+        time: '11:00 AM',
+        avatarId: specialist.avatarId,
+    };
+    upcomingAppointments.push(newAppointment);
+    
     toast({
       title: 'Booking Request Sent!',
       description: `Your request to see ${specialist.name} has been submitted.`,
     });
     setOpen(false);
     form.reset();
+    router.push('/consultations');
   }
 
   return (

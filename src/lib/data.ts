@@ -1,6 +1,7 @@
 
 
-export const vitalsData = [
+
+export let vitalsData = [
   { date: 'Mon', 'Heart Rate': 72, 'Blood Pressure': 120 },
   { date: 'Tue', 'Heart Rate': 75, 'Blood Pressure': 122 },
   { date: 'Wed', 'Heart Rate': 69, 'Blood Pressure': 118 },
@@ -10,7 +11,7 @@ export const vitalsData = [
   { date: 'Sun', 'Heart Rate': 70, 'Blood Pressure': 119 },
 ];
 
-export const activityData = [
+export let activityData = [
   { date: 'Mon', 'Steps': 8500 },
   { date: 'Tue', 'Steps': 9200 },
   { date: 'Wed', 'Steps': 7800 },
@@ -20,7 +21,7 @@ export const activityData = [
   { date: 'Sun', 'Steps': 8234 },
 ];
 
-export const sleepData = [
+export let sleepData = [
     { date: 'Mon', 'Hours': 7.5 },
     { date: 'Tue', 'Hours': 8 },
     { date: 'Wed', 'Hours': 6.5 },
@@ -30,19 +31,19 @@ export const sleepData = [
     { date: 'Sun', 'Hours': 7.75 },
 ];
 
-export const medications = [
+export let medications = [
     { id: 'med1', name: 'Lisinopril', dosage: '10mg', frequency: 'Once a day', status: 'Active' },
     { id: 'med2', name: 'Metformin', dosage: '500mg', frequency: 'Twice a day', status: 'Active' },
     { id: 'med3', name: 'Atorvastatin', dosage: '20mg', frequency: 'Once daily at bedtime', status: 'Active' },
     { id: 'med4', name: 'Amoxicillin', dosage: '500mg', frequency: 'Every 8 hours', status: 'Finished' },
 ];
 
-export const upcomingAppointments = [
+export let upcomingAppointments = [
     { id: 'apt1', doctor: 'Dr. Evelyn Reed', specialty: 'Cardiologist', date: '2024-08-15', time: '10:30 AM', avatarId: 'doc1' },
     { id: 'apt2', doctor: 'Dr. Ben Carter', specialty: 'General Practitioner', date: '2024-08-22', time: '02:00 PM', avatarId: 'doc2' },
 ];
 
-export const pastAppointments = [
+export let pastAppointments = [
     { id: 'apt3', doctor: 'Dr. Ben Carter', specialty: 'General Practitioner', date: '2024-07-10', notes: 'Routine check-up. All vitals normal.' },
 ];
 

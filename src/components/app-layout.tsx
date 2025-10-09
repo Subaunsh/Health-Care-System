@@ -1,8 +1,9 @@
+
 'use client';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { HeartPulse } from 'lucide-react';
+import { HeartPulse, Home, LogIn } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -12,10 +13,15 @@ import {
   SidebarInset,
   SidebarTrigger,
   SidebarGroup,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { UserMenu } from './user-menu';
 import { PatientLayout } from './patient-layout';
 import { SpecialistLayout } from './specialist-layout';
+import Link from 'next/link';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
@@ -32,6 +38,25 @@ export function AppLayout({ children }: { children: ReactNode }) {
           </div>
         </SidebarHeader>
         <SidebarContent>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="/">
+                  <Home />
+                  <span>Home</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="#">
+                  <LogIn />
+                  <span>Log in / Sign up</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+          <SidebarSeparator />
           <SidebarGroup className="p-2">
             <ToggleGroup
               type="single"

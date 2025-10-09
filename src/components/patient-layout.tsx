@@ -12,7 +12,7 @@ interface PatientLayoutProps {
 
 export function PatientLayout({ children, showContent = false }: PatientLayoutProps) {
   const pathname = usePathname();
-  const isPatientRoute = ['/dashboard', '/medications', '/consultations', '/insights', '/profile', '/specialists'].includes(pathname);
+  const isPatientRoute = ['/dashboard', '/medications', '/consultations', '/insights', '/profile', '/specialists', '/settings'].includes(pathname);
 
   if (showContent) {
     if (isPatientRoute) {

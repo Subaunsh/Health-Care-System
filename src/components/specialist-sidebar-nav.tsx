@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   Users,
   User,
+  Settings,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -15,6 +16,7 @@ import {
 const navItems = [
   { href: '/patients', label: 'Patients', icon: Users },
   { href: '/profile', label: 'Profile', icon: User },
+  { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
 export function SpecialistSidebarNav() {

@@ -9,6 +9,7 @@ import {
   Sparkles,
   User,
   Stethoscope,
+  Settings,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -23,11 +24,12 @@ const navItems = [
   { href: '/consultations', label: 'Consultations', icon: Video },
   { href: '/insights', label: 'Insights', icon: Sparkles },
   { href: '/profile', label: 'Profile', icon: User },
+  { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
 export function SidebarNav() {
   const pathname = usePathname();
-  const isPatientRoute = ['/dashboard', '/medications', '/consultations', '/insights', '/profile', '/specialists'].includes(pathname);
+  const isPatientRoute = ['/dashboard', '/medications', '/consultations', '/insights', '/profile', '/specialists', '/settings'].includes(pathname);
 
 
   return (

@@ -1,109 +1,69 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Activity, BedDouble, Footprints, HeartPulse } from 'lucide-react';
-import VitalsChart from '@/components/dashboard/vitals-chart';
-import ActivityChart from '@/components/dashboard/activity-chart';
-import SleepChart from '@/components/dashboard/sleep-chart';
-import PageHeader from '@/components/page-header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { HeartPulse, Stethoscope, Video } from 'lucide-react';
+import Link from 'next/link';
 
-export default function DashboardPage() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col gap-8">
-      <PageHeader
-        title="Welcome Back, Alex"
-        description="Here’s a snapshot of your health today."
-      />
-
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Heart Rate</CardTitle>
-            <HeartPulse className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">72 BPM</div>
-            <p className="text-xs text-muted-foreground">Normal</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Steps Today</CardTitle>
-            <Footprints className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">8,234</div>
-            <p className="text-xs text-muted-foreground">+1,204 from yesterday</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Sleep</CardTitle>
-            <BedDouble className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">7h 45m</div>
-            <p className="text-xs text-muted-foreground">Good quality</p>
-          </CardContent>
-        </Card>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+      <div className="container mx-auto px-4 py-16 text-center">
+        <HeartPulse className="w-24 h-24 mx-auto text-primary" />
+        <h1 className="mt-4 text-5xl font-extrabold tracking-tight font-headline">
+          Welcome to HealthSync
+        </h1>
+        <p className="mt-4 text-xl text-muted-foreground">
+          Your All-in-One Health Companion.
+        </p>
+        <p className="mt-2 max-w-2xl mx-auto text-lg">
+          Track your vitals, manage medications, and connect with top specialists, all from one secure platform. Take control of your health journey today.
+        </p>
+        <div className="mt-8 flex justify-center gap-4">
+          <Button asChild size="lg">
+            <Link href="/specialists">Get Started</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="#">Learn More</Link>
+          </Button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Card className="col-span-1 lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Activity className="h-5 w-5" />
-              Vitals Overview
-            </CardTitle>
-            <CardDescription>
-              Your heart rate and blood pressure over the last week.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <VitalsChart />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Activity</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ActivityChart />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Sleep Patterns</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <SleepChart />
-          </CardContent>
-        </Card>
+      <div className="w-full bg-secondary py-16">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <Card>
+            <CardHeader>
+                <Stethoscope className="w-12 h-12 mx-auto text-primary" />
+                <CardTitle className="mt-4 text-2xl font-bold">Find Specialists</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground">
+                    Easily find and book consultations with a wide range of healthcare professionals.
+                </p>
+            </CardContent>
+          </Card>
+           <Card>
+            <CardHeader>
+                <Video className="w-12 h-12 mx-auto text-primary" />
+                <CardTitle className="mt-4 text-2xl font-bold">Telehealth</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground">
+                    Connect with your doctors through secure video calls from the comfort of your home.
+                </p>
+            </CardContent>
+          </Card>
+           <Card>
+            <CardHeader>
+                <HeartPulse className="w-12 h-12 mx-auto text-primary" />
+                <CardTitle className="mt-4 text-2xl font-bold">Health Tracking</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-muted-foreground">
+                    Monitor your vitals, symptoms, and lifestyle to get personalized AI-powered insights.
+                </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Symptom Logger</CardTitle>
-          <CardDescription>
-            Feeling unwell? Log your symptoms here for your record.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex w-full items-center space-x-2">
-            <Input
-              type="text"
-              placeholder="e.g., Headache, mild fever..."
-            />
-            <Button type="submit">Log Symptom</Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

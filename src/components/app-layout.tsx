@@ -22,20 +22,28 @@ import { UserMenu } from './user-menu';
 import { PatientLayout } from './patient-layout';
 import { SpecialistLayout } from './specialist-layout';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const [role, setRole] = useState('patient');
+  const pathname = usePathname();
+  
+  const isHomePage = pathname === '/';
+
+  if (isHomePage) {
+    return <>{children}</>;
+  }
 
   return (
     <SidebarProvider>
       <Sidebar variant="sidebar" collapsible="icon" className="border-r">
         <SidebarHeader className="p-4">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <HeartPulse className="h-5 w-5" />
             </div>
             <span className="font-headline text-lg font-bold">HealthSync</span>
-          </div>
+          </Link>
         </SidebarHeader>
         <SidebarContent>
           <SidebarMenu>

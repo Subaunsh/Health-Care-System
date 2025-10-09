@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { HeartPulse, Home, LogIn } from 'lucide-react';
+import { HeartPulse, Home, LogIn, Info, Mail } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -47,11 +47,27 @@ export function AppLayout({ children }: { children: ReactNode }) {
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
+             <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="#">
+                  <Info />
+                  <span>About Us</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+             <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="#">
+                  <Mail />
+                  <span>Contact Us</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
                 <Link href="#">
                   <LogIn />
-                  <span>Log in / Sign up</span>
+                  <span>Log in</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

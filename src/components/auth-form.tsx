@@ -12,6 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 
 export function AuthForm() {
   return (
@@ -29,6 +30,13 @@ export function AuthForm() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label>I am a...</Label>
+              <ToggleGroup type="single" defaultValue="patient" className="grid grid-cols-2">
+                <ToggleGroupItem value="patient">Patient</ToggleGroupItem>
+                <ToggleGroupItem value="specialist">Specialist</ToggleGroupItem>
+              </ToggleGroup>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="signup-name">Full Name</Label>
               <Input id="signup-name" placeholder="Alex Doe" required />
@@ -61,6 +69,13 @@ export function AuthForm() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label>I am a...</Label>
+              <ToggleGroup type="single" defaultValue="patient" className="grid grid-cols-2">
+                <ToggleGroupItem value="patient">Patient</ToggleGroupItem>
+                <ToggleGroupItem value="specialist">Specialist</ToggleGroupItem>
+              </ToggleGroup>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="login-email">Email</Label>
               <Input

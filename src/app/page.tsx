@@ -1,7 +1,18 @@
+
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { HeartPulse, Stethoscope, Video } from 'lucide-react';
 import Link from 'next/link';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { AuthForm } from '@/components/auth-form';
 
 export default function HomePage() {
   return (
@@ -18,9 +29,17 @@ export default function HomePage() {
           Track your vitals, manage medications, and connect with top specialists, all from one secure platform. Take control of your health journey today.
         </p>
         <div className="mt-8 flex justify-center gap-4">
-          <Button asChild size="lg">
-            <Link href="/specialists">Get Started</Link>
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="lg">Get Started</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle className="sr-only">Authentication</DialogTitle>
+              </DialogHeader>
+              <AuthForm />
+            </DialogContent>
+          </Dialog>
           <Button asChild variant="outline" size="lg">
             <Link href="#">Learn More</Link>
           </Button>

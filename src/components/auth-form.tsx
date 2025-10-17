@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -13,8 +14,22 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export function AuthForm() {
+  const router = useRouter();
+  const [loginRole, setLoginRole] = useState('patient');
+  const [signupRole, setSignupRole] = useState('patient');
+
+  const handleLogin = () => {
+    if (loginRole === 'patient') {
+      router.push('/specialists');
+    } else {
+      router.push('/patients');
+    }
+  };
+
   return (
     <Tabs defaultValue="login" className="w-full">
       <TabsList className="grid w-full grid-cols-2">
@@ -32,7 +47,14 @@ export function AuthForm() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>I am a...</Label>
-              <ToggleGroup type="single" defaultValue="patient" className="grid grid-cols-2">
+              <ToggleGroup
+                type="single"
+                defaultValue={signupRole}
+                onValueChange={(value) => {
+                  if (value) setSignupRole(value);
+                }}
+                className="grid grid-cols-2"
+              >
                 <ToggleGroupItem value="patient">Patient</ToggleGroupItem>
                 <ToggleGroupItem value="specialist">Specialist</ToggleGroupItem>
               </ToggleGroup>
@@ -71,7 +93,14 @@ export function AuthForm() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>I am a...</Label>
-              <ToggleGroup type="single" defaultValue="patient" className="grid grid-cols-2">
+              <ToggleGroup
+                type="single"
+                defaultValue={loginRole}
+                onValueChange={(value) => {
+                  if (value) setLoginRole(value);
+                }}
+                className="grid grid-cols-2"
+              >
                 <ToggleGroupItem value="patient">Patient</ToggleGroupItem>
                 <ToggleGroupItem value="specialist">Specialist</ToggleGroupItem>
               </ToggleGroup>
@@ -91,7 +120,7 @@ export function AuthForm() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">Log In</Button>
+            <Button className="w-full" onClick={handleLogin}>Log In</Button>
           </CardFooter>
         </Card>
       </TabsContent>
